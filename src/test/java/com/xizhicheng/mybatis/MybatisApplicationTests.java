@@ -1,7 +1,7 @@
-package com.didispace.chapter36;
+package com.xizhicheng.mybatis;
 
-import com.didispace.chapter36.entity.User;
-import com.didispace.chapter36.mapper.UserMapper;
+import com.xizhicheng.mybatis.entity.User;
+import com.xizhicheng.mybatis.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class Chapter36ApplicationTests {
+public class MybatisApplicationTests {
 
     @Autowired
     private UserMapper userMapper;

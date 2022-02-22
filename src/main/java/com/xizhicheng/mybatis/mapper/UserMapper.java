@@ -1,6 +1,6 @@
-package com.didispace.chapter36.mapper;
+package com.xizhicheng.mybatis.mapper;
 
-import com.didispace.chapter36.entity.User;
+import com.xizhicheng.mybatis.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 /**

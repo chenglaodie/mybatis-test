@@ -1,4 +1,4 @@
-package com.didispace.chapter36.entity;
+package com.xizhicheng.mybatis.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
