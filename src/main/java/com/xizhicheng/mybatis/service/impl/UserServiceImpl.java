@@ -6,6 +6,8 @@ import com.xizhicheng.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -16,5 +18,11 @@ public class UserServiceImpl implements UserService {
     public User getUserInfo(Integer id) {
         User user = userMapper.findById(id);
         return user;
+    }
+
+    @Override
+    public List<User> getUserInfoByName(String name) {
+        List<User> userList = userMapper.getUserInfoByName(name);
+        return userList;
     }
 }

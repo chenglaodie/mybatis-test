@@ -24,9 +24,9 @@ public class MybatisApplicationTests {
     @Test
     @Rollback
     public void test() throws Exception {
-        userMapper.insert("BBB", 22);
-        User u = userMapper.findByName("BBB");
-        Assert.assertEquals(22, u.getAge().intValue());
+//        userMapper.insert("BBB", 22);
+        User u = userMapper.findByName("AAA");
+//        Assert.assertEquals(22, u.getAge().intValue());
     }
 
 }

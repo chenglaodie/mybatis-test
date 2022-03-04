@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 public class UserController {
 
@@ -16,9 +17,13 @@ public class UserController {
 
 
     @RequestMapping(value = "/getUserInfo/{id}", method = RequestMethod.GET)
-
     public User getUserInfo(@PathVariable Integer id) {
         User user = userService.getUserInfo(id);
         return user;
+    }
+    @RequestMapping(value = "/getUserInfoByName/{name}", method = RequestMethod.GET)
+    public List<User> getUserInfoByName(@PathVariable String name) {
+        List<User> userList = userService.getUserInfoByName(name);
+        return userList;
     }
 }
