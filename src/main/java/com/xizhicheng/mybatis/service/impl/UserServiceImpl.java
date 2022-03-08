@@ -1,5 +1,6 @@
 package com.xizhicheng.mybatis.service.impl;
 
+import com.xizhicheng.mybatis.dto.request.UserCreatReq;
 import com.xizhicheng.mybatis.entity.User;
 import com.xizhicheng.mybatis.mapper.UserMapper;
 import com.xizhicheng.mybatis.service.UserService;
@@ -25,4 +26,14 @@ public class UserServiceImpl implements UserService {
         List<User> userList = userMapper.getUserInfoByName(name);
         return userList;
     }
+
+    @Override
+    public void insertUserInfo(UserCreatReq req) {
+        User user = new User();
+        user.setAge(req.getAge());
+        user.setName(req.getName());
+        user.setPwd(req.getPwd());
+        userMapper.insertUser(user);
+    }
+
 }

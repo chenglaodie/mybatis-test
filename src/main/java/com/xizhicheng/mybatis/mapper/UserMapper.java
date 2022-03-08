@@ -2,17 +2,12 @@ package com.xizhicheng.mybatis.mapper;
 
 import com.xizhicheng.mybatis.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
-/**
- * Created by 程序猿DD/翟永超 on 2020/2/28.
- * <p>
- * Blog: http://blog.didispace.com/
- * Github: https://github.com/dyc87112/
- */
 @Mapper
+@Repository
 public interface UserMapper {
 
     User findByName(String name);
@@ -20,4 +15,6 @@ public interface UserMapper {
     int insert(String name, Integer age);
 
     List<User> getUserInfoByName(String name);
+
+    void insertUser(User user);
 }
