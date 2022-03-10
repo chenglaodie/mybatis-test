@@ -29,4 +29,17 @@
     <select id="getUserInfoByName" resultMap="userResultMap">
         SELECT * FROM USER WHERE NAME = #{name}
     </select>
+
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="com.xizhicheng.mybatis.entity.User">
+        UPDATE USER
+            SET AGE = #{age},
+                NAME = #{name},
+                PWD = #{pwd}
+         WHERE ID = #{id};
+    </update>
+
 </mapper>

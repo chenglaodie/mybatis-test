@@ -1,6 +1,7 @@
 package com.xizhicheng.mybatis.controller;
 
 import com.xizhicheng.mybatis.dto.request.UserCreatReq;
+import com.xizhicheng.mybatis.dto.request.UserUpdateReq;
 import com.xizhicheng.mybatis.entity.User;
 import com.xizhicheng.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +46,13 @@ public class UserController {
     }
 
 
+    @RequestMapping(value = "/deleteUserInfo/{id}", method = RequestMethod.DELETE)
+    public void deleteUserInfo(@PathVariable Integer id) {
+        userService.deleteUserInfo(id);
+    }
+
+    @RequestMapping(value = "/putUserInfo", method = RequestMethod.PUT)
+    public void updateUserInfo(@RequestBody UserUpdateReq req) {
+        userService.updateUserInfo(req);
+    }
 }
