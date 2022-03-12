@@ -1,14 +1,10 @@
-package com.xizhicheng.mybatis.entity;
+package com.xizhicheng.mybatis.dto.request;
 
-
-
-
-public class Student {
+public class StudentCreatReq {
     private Integer sid;
     private String  name;
     private Integer age;
     private String  birthday;
-
 
     public Integer getSid() {
         return sid;

@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Mapper
 @Repository
-public interface  StudentMapper {
+public interface StudentMapper {
 
     Student findByStSid(Integer id);
+
+    void addStudent(Student student);
+
+    void deleteStudent(Integer sid);
 }
