@@ -30,7 +30,7 @@ public class MybatisApplicationTests {
     private StudentMapper studentMapper;
 
     @Test
-    public void test() throws Exception {
+    public void test2() throws Exception {
 //        userMapper.insert("BBB", 22);
         User u = userMapper.findByName("AAA");
 //        Assert.assertEquals(22, u.getAge().intValue());
@@ -81,5 +81,6 @@ public class MybatisApplicationTests {
 
 
     }
+
 
 }

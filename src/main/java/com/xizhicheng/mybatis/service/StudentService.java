@@ -10,4 +10,6 @@ public interface StudentService {
     void addStudentInfo(StudentCreatReq req);
 
     void deleteStudentInfo(Integer sid);
+
+    void updateStudentInfo(StudentCreatReq req);
 }

@@ -14,4 +14,6 @@ public interface StudentMapper {
     void addStudent(Student student);
 
     void deleteStudent(Integer sid);
+
+    void updateStudent(Student student);
 }

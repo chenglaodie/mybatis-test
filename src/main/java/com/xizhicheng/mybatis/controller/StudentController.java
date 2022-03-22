@@ -14,18 +14,27 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    /**
+     * 查找一个学生信息
+     * @param sid
+     * @return
+     */
     @RequestMapping(value = "/getStudentInfo/{sid}", method = RequestMethod.GET)
     public Student getStudentInfo(@PathVariable Integer sid) {
         Student student = studentService.getStudentInfo(sid);
         return student;
     }
 
+    /**
+     *
+     * @param sid
+     * @return
+     */
     @RequestMapping(value = "/insertStudentInfo/{sid}", method = RequestMethod.GET)
     public Student  insertStudentInfo(@PathVariable Integer sid) {
         Student student = studentService.getStudentInfo(sid);
         return student;
     }
-
 
     /**
      * 增加一个学生信息
@@ -43,6 +52,15 @@ public class StudentController {
     @RequestMapping(value = "/deleteStudentInfo/{sid}", method = RequestMethod.DELETE)
     public void deleteStudentInfo(@PathVariable Integer sid) {
         studentService.deleteStudentInfo(sid);
+    }
+
+    /**
+     * 修改更新学生信息
+     * @param req
+     */
+    @RequestMapping(value = "/updateStudentInfo", method = RequestMethod.PUT)
+    public void updateStudentInfo(@RequestBody StudentCreatReq req) {
+        studentService.updateStudentInfo(req);
     }
 
 

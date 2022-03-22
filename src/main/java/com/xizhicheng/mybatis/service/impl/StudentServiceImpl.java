@@ -35,4 +35,14 @@ public class StudentServiceImpl implements StudentService {
         studentMapper.deleteStudent(sid);
     }
 
+    @Override
+    public void updateStudentInfo(StudentCreatReq req) {
+        Student student = new Student();
+        student.setSid(req.getSid());
+        student.setName(req.getName());
+        student.setBirthday(req.getBirthday());
+        student.setAge(req.getAge());
+        studentMapper.updateStudent(student);
+    }
+
 }
