@@ -1,6 +1,8 @@
 package com.xizhicheng.mybatis.service;
 
+import com.xizhicheng.mybatis.dto.request.BatchInsertUserReq;
 import com.xizhicheng.mybatis.dto.request.UserCreatReq;
+import com.xizhicheng.mybatis.dto.request.UserQueryReq;
 import com.xizhicheng.mybatis.dto.request.UserUpdateReq;
 import com.xizhicheng.mybatis.entity.User;
 
@@ -17,4 +19,8 @@ public interface UserService {
     void deleteUserInfo(Integer id);
 
     void updateUserInfo(UserUpdateReq req);
+
+    List<User> getUserInfoList(UserQueryReq req);
+
+    int batchInsert(BatchInsertUserReq req);
 }

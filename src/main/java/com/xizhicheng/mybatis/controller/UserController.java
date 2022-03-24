@@ -1,6 +1,8 @@
 package com.xizhicheng.mybatis.controller;
 
+import com.xizhicheng.mybatis.dto.request.BatchInsertUserReq;
 import com.xizhicheng.mybatis.dto.request.UserCreatReq;
+import com.xizhicheng.mybatis.dto.request.UserQueryReq;
 import com.xizhicheng.mybatis.dto.request.UserUpdateReq;
 import com.xizhicheng.mybatis.entity.User;
 import com.xizhicheng.mybatis.service.UserService;
@@ -39,6 +41,21 @@ public class UserController {
         List<User> userList = userService.getUserInfoByName(name);
         return userList;
     }
+
+    @RequestMapping(value = "/getUserInfoList", method = RequestMethod.POST)
+    public List<User> getUserInfoList(@RequestBody UserQueryReq req) {
+        List<User> userList = userService.getUserInfoList(req);
+        return userList;
+    }
+
+    @RequestMapping(value = "/batchInsert", method = RequestMethod.POST)
+    public Integer batchInsert(@RequestBody BatchInsertUserReq req) {
+        int userCount = userService.batchInsert(req);
+        return userCount;
+    }
+
+
+
 
     @RequestMapping(value = "/insertUserInfo", method = RequestMethod.POST)
     public void insertUserInfo(@RequestBody UserCreatReq req) {

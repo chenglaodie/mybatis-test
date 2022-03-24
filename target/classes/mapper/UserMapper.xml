@@ -42,4 +42,29 @@
          WHERE ID = #{id};
     </update>
 
+<!--    批量查詢-->
+    <select id="getUserInfoList" parameterType="com.xizhicheng.mybatis.dto.request.UserQueryReq" resultMap="userResultMap">
+        select * from user
+        where 1=1
+        <if test="name != null">
+            and NAME = #{name}
+        </if>
+
+        <if test="age != null">
+            and age = #{age}
+        </if>
+    </select>
+
+<!--    批量插入-->
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into user (name, age, pwd)
+        values
+        <foreach collection="list" item="list" index="index" separator=",">
+            (#{list.name,jdbcType=VARCHAR},
+            #{list.age,jdbcType=INTEGER},
+            #{list.pwd,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
 </mapper>

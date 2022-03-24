@@ -1,5 +1,7 @@
 package com.xizhicheng.mybatis.mapper;
 
+import com.xizhicheng.mybatis.dto.request.BatchInsertUserRequest;
+import com.xizhicheng.mybatis.dto.request.UserQueryReq;
 import com.xizhicheng.mybatis.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -21,4 +23,8 @@ public interface UserMapper {
     void deleteUserById(Integer id);
 
     void updateUserById(User user);
+
+    List<User> getUserInfoList(UserQueryReq req);
+
+    int batchInsert(List<BatchInsertUserRequest> list);
 }

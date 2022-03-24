@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>com.didispace</groupId>
-	<artifactId>chapter3-5</artifactId>
+	<artifactId>springboot-mybatis-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>使用MyBatis访问MySQL</description>
 

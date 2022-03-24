@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/chapter3-5.iml" filepath="$PROJECT_DIR$/chapter3-5.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/mybatis-test.iml" filepath="$PROJECT_DIR$/.idea/mybatis-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/../springboot-mybatis-my1/springboot-mybatis-my1.iml" filepath="$PROJECT_DIR$/../springboot-mybatis-my1/springboot-mybatis-my1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-mybatis-test.iml" filepath="$PROJECT_DIR$/springboot-mybatis-test.iml" />
     </modules>
   </component>
 </project>
