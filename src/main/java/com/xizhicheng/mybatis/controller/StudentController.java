@@ -1,5 +1,7 @@
 package com.xizhicheng.mybatis.controller;
 
+import com.xizhicheng.mybatis.dto.request.BatchInsertStudentReq;
+import com.xizhicheng.mybatis.dto.request.BatchInsertUserReq;
 import com.xizhicheng.mybatis.dto.request.StudentCreatReq;
 import com.xizhicheng.mybatis.dto.request.UserCreatReq;
 import com.xizhicheng.mybatis.entity.Student;
@@ -7,6 +9,8 @@ import com.xizhicheng.mybatis.entity.User;
 import com.xizhicheng.mybatis.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class StudentController {
@@ -26,7 +30,7 @@ public class StudentController {
     }
 
     /**
-     *
+     *插入一条学生信息
      * @param sid
      * @return
      */
@@ -63,5 +67,17 @@ public class StudentController {
         studentService.updateStudentInfo(req);
     }
 
+    /**
+     * 批量插入学生信息
+     * @param req
+     * @return
+     */
+    @RequestMapping(value = "/batchInsertStudentInfo", method = RequestMethod.POST)
+    public Integer batchInsertStudentInfo(@RequestBody BatchInsertStudentReq req){
+    int countStudent = studentService.batchInsertStudentInfo(req);
+    return countStudent;
+    }
 
+//    @RequestMapping(value = "getBatchStudentInfo", method = RequestMethod.GET)
+//    public List<Student> getBatchStudentInfo(){}
 }

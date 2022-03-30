@@ -1,11 +1,16 @@
 package com.xizhicheng.mybatis.service.impl;
 
+import com.xizhicheng.mybatis.dto.request.BatchInsertStudentReq;
+import com.xizhicheng.mybatis.dto.request.BatchInsertStudentRequset;
+import com.xizhicheng.mybatis.dto.request.BatchInsertUserReq;
 import com.xizhicheng.mybatis.dto.request.StudentCreatReq;
 import com.xizhicheng.mybatis.entity.Student;
 import com.xizhicheng.mybatis.mapper.StudentMapper;
 import com.xizhicheng.mybatis.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -43,6 +48,13 @@ public class StudentServiceImpl implements StudentService {
         student.setBirthday(req.getBirthday());
         student.setAge(req.getAge());
         studentMapper.updateStudent(student);
+    }
+
+    @Override
+    public int batchInsertStudentInfo(BatchInsertStudentReq req) {
+        List<BatchInsertStudentRequset> batchInsertStudentRequsetList = req.getBatchInsertStudentRequsetList();
+        int countStudentSize = studentMapper.batchInsertStudent(batchInsertStudentRequsetList);
+        return countStudentSize;
     }
 
 }

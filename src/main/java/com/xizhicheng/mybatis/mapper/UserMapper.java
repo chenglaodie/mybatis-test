@@ -1,6 +1,7 @@
 package com.xizhicheng.mybatis.mapper;
 
 import com.xizhicheng.mybatis.dto.request.BatchInsertUserRequest;
+import com.xizhicheng.mybatis.dto.request.BatchUpdateRequset;
 import com.xizhicheng.mybatis.dto.request.UserQueryReq;
 import com.xizhicheng.mybatis.entity.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -26,5 +27,7 @@ public interface UserMapper {
 
     List<User> getUserInfoList(UserQueryReq req);
 
-    int batchInsert(List<BatchInsertUserRequest> list);
+    Integer batchInsert(List<BatchInsertUserRequest> list);
+
+    void batchUpdate(List<BatchUpdateRequset> list);
 }

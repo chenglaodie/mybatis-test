@@ -1,5 +1,6 @@
 package com.xizhicheng.mybatis.service;
 
+import com.xizhicheng.mybatis.dto.request.BatchInsertStudentReq;
 import com.xizhicheng.mybatis.dto.request.StudentCreatReq;
 import com.xizhicheng.mybatis.entity.Student;
 
@@ -12,4 +13,6 @@ public interface StudentService {
     void deleteStudentInfo(Integer sid);
 
     void updateStudentInfo(StudentCreatReq req);
+
+    int batchInsertStudentInfo(BatchInsertStudentReq req);
 }

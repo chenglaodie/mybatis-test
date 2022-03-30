@@ -1,9 +1,6 @@
 package com.xizhicheng.mybatis.service;
 
-import com.xizhicheng.mybatis.dto.request.BatchInsertUserReq;
-import com.xizhicheng.mybatis.dto.request.UserCreatReq;
-import com.xizhicheng.mybatis.dto.request.UserQueryReq;
-import com.xizhicheng.mybatis.dto.request.UserUpdateReq;
+import com.xizhicheng.mybatis.dto.request.*;
 import com.xizhicheng.mybatis.entity.User;
 
 import java.util.List;
@@ -22,5 +19,7 @@ public interface UserService {
 
     List<User> getUserInfoList(UserQueryReq req);
 
-    int batchInsert(BatchInsertUserReq req);
+    Integer batchInsert(BatchInsertUserReq req);
+
+    void batchUpdate(BatchUpdateReq req);
 }

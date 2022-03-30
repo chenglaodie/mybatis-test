@@ -58,10 +58,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int batchInsert(BatchInsertUserReq req) {
+    public Integer batchInsert(BatchInsertUserReq req) {
         List<BatchInsertUserRequest> batchInsertUserRequestList = req.getBatchInsertUserRequestList();
-        int userSize = userMapper.batchInsert(batchInsertUserRequestList);
+        Integer userSize = userMapper.batchInsert(batchInsertUserRequestList);
         return userSize;
+    }
+
+    @Override
+    public void batchUpdate(BatchUpdateReq req) {
+        List<BatchUpdateRequset> batchInsertUserRequestList = req.getBatchUpdateRequsetList();
+            userMapper.batchUpdate(batchInsertUserRequestList);
     }
 
 }

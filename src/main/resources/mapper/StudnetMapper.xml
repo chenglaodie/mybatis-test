@@ -14,7 +14,7 @@
         delete from student where sid = #{sid}
     </delete>
 
-<!--    修改学生信息-->
+<!--修改学生信息-->
     <update id="updateStudent" parameterType="com.xizhicheng.mybatis.entity.Student">
          update student
             set name = #{name},
@@ -22,4 +22,17 @@
                 birthday = #{birthday}
          where sid = #{sid}
     </update>
+
+    <!--批量插入学生信息-->
+    <insert id="batchInsertStudent" parameterType="java.util.List">
+        insert into student(sid, name, age, birthday )
+        values
+        <foreach collection="list" item="list" index="index" separator=",">
+            (#{list.sid,jdbcType=INTEGER},
+            #{list.name,jdbcType=VARCHAR},
+            #{list.age,jdbcType=INTEGER},
+            #{list.birthday,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
 </mapper>
