@@ -21,5 +21,5 @@ public interface UserService {
 
     Integer batchInsert(BatchInsertUserReq req);
 
-    void batchUpdate(BatchUpdateReq req);
+    int batchUpdate(BatchUpdateReq req);
 }

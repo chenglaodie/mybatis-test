@@ -1,11 +1,14 @@
 package com.xizhicheng.mybatis.controller;
 
 import com.xizhicheng.mybatis.dto.request.*;
+import com.xizhicheng.mybatis.entity.Student;
 import com.xizhicheng.mybatis.entity.User;
 import com.xizhicheng.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -15,8 +18,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-
     /**
      * 根据ID查询用户信息
      * @param id
@@ -40,7 +41,7 @@ public class UserController {
     }
 
     /**
-     * 获取批量用户信息
+     * 批量获取用户信息
      * @param req
      * @return
      */
@@ -94,8 +95,14 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/batchUpdate", method = RequestMethod.PUT)
-    public void batchUpdate(@RequestBody BatchUpdateReq req) {
-            userService.batchUpdate(req);
+    public int batchUpdate(@RequestBody BatchUpdateReq req) {
+        int count = userService.batchUpdate(req);
+            return count;
     }
+
+//    String url = "http://localhost:端口号/**/**/**/+ID";
+//    Student student = restTemplate.getForObject(url, Student.class);
+
+
 
 }

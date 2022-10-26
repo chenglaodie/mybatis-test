@@ -10,6 +10,7 @@ import com.xizhicheng.mybatis.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,12 +28,16 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void addStudentInfo(StudentCreatReq req) {
-        Student student = new Student();
-        student.setSid(req.getSid());
-        student.setAge(req.getAge());
-        student.setName(req.getName());
-        student.setBirthday(req.getBirthday());
-        studentMapper.addStudent(student);
+
+        for (int i = 1; i < 1000; i++) {
+            Student student = new Student();
+            student.setSid(i);
+            student.setAge(req.getAge() + i);
+            student.setName(req.getName() + i);
+            student.setBirthday(new Date());
+            studentMapper.addStudent(student);
+        }
+
     }
 
     @Override
@@ -45,7 +50,7 @@ public class StudentServiceImpl implements StudentService {
         Student student = new Student();
         student.setSid(req.getSid());
         student.setName(req.getName());
-        student.setBirthday(req.getBirthday());
+        student.setBirthday(new Date());
         student.setAge(req.getAge());
         studentMapper.updateStudent(student);
     }

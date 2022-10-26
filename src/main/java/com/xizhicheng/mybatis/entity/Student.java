@@ -2,12 +2,13 @@ package com.xizhicheng.mybatis.entity;
 
 
 
+import java.util.Date;
 
 public class Student {
     private Integer sid;
     private String  name;
     private Integer age;
-    private String  birthday;
+    private Date birthday;
 
 
     public Integer getSid() {
@@ -34,11 +35,11 @@ public class Student {
         this.age = age;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 }

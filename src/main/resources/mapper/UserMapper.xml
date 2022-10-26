@@ -10,30 +10,32 @@
         <result property="age" column="age"/>
     </resultMap>
 
+<!--根据用户名查询用户信息-->
     <select id="findByName" resultType="com.xizhicheng.mybatis.entity.User">
         SELECT * FROM USER WHERE NAME = #{name}
     </select>
 
-    <insert id="insert">
-        INSERT INTO USER(NAME, AGE) VALUES(#{name}, #{age})
-    </insert>
-
+<!--插入一条用户信息-->
     <insert id="insertUser" parameterType="com.xizhicheng.mybatis.entity.User">
         INSERT INTO USER(NAME, AGE, PWD) VALUES(#{name}, #{age}, #{pwd})
     </insert>
 
+<!--根据ID查询用户信息-->
     <select id="findById" resultType="com.xizhicheng.mybatis.entity.User">
         SELECT * FROM USER WHERE ID = #{id}
     </select>
 
+<!--根据用户名查询用户信息-->
     <select id="getUserInfoByName" resultMap="userResultMap">
         SELECT * FROM USER WHERE NAME = #{name}
     </select>
 
+<!--根据ID删除用户信息-->
     <delete id="deleteUserById">
         delete from user where id = #{id}
     </delete>
 
+<!--根据ID更新用户信息-->
     <update id="updateUserById" parameterType="com.xizhicheng.mybatis.entity.User">
         UPDATE USER
             SET AGE = #{age},
@@ -42,7 +44,7 @@
          WHERE ID = #{id};
     </update>
 
-<!--    批量查詢-->
+<!--批量查詢用户信息-->
     <select id="getUserInfoList" parameterType="com.xizhicheng.mybatis.dto.request.UserQueryReq" resultMap="userResultMap">
         select * from user
         where 1=1
@@ -55,7 +57,7 @@
         </if>
     </select>
 
-<!--    批量插入-->
+<!--批量插入用户信息-->
     <insert id="batchInsert" parameterType="java.util.List">
         insert into user (name, age, pwd)
         values
@@ -67,22 +69,22 @@
         </foreach>
     </insert>
 
-<!--    批量更新:暂时有问题-->
+<!--批量更新用户信息-->
     <update id="batchUpdate" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
-            update user
+        <foreach collection="list" item="items" index="index" open="" close="" separator=";">
+            UPDATE access_info
             <set>
-                <if test="item.name != null">
-                    name = #{item.name,jdbcType=VARCHAR},
+                <if test="items.name != null">
+                    name = #{items.name},
                 </if>
-                <if test="item.age != null">
-                    age = #{item.age,jdbcType=INTEGER},
+                <if test="items.age != null">
+                    age = #{items.age},
                 </if>
-                <if test="item.pwd != null">
-                    pwd = #{item.pwd,jdbcType=VARCHAR},
+                <if test="items.pwd != null">
+                    pwd = #{items.pwd},
                 </if>
             </set>
-            where id = #{item.id,jdbcType=INTEGER}
+            where id = #{items.id}
         </foreach>
     </update>
 
